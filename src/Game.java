@@ -37,41 +37,7 @@ public class Game
 	{	
 		int score = 0;
 		boolean isLast = false;
-		/*
-		for(int i = 0; i < frames.length; i++)
-		{
-			isLast = i == frames.length - 1;
 			
-			if (!isLast)
-			{
-				if (frames[i].isStrike())
-				{
-					if (frames[i+1].isStrike() && i < frames.length - 2)
-					 {
-						 score += frames[i+2].getFrame()[0];
-					 }
-					
-					 score += frames[i+1].getScore();
-				}
-				
-				else if (frames[i].isSpare())
-				{
-					score += frames[i+1].getFrame()[0];
-				}
-			}
-			else if (frames[i].isSpare() || frames[i].isStrike())
-			{
-				 score += this.bonus_shots[0];
-				 
-				 if (frames[i].isStrike())
-				 {
-					 score += this.bonus_shots[1];
-				 }
-			}
-						
-			score += frames[i].getScore();
-		}*/
-		
 		int[] scores = new int[10];
 		
 		for(int i = frames.length - 1; i >= 0; i--)
