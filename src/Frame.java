@@ -2,6 +2,8 @@
 public class Frame {
 	
 	private int[] _throws;
+	private boolean isSpare = false;
+	private boolean isStrike = false;
 	
 	/**
 	 * Creates a frame.
@@ -31,7 +33,18 @@ public class Frame {
 		}
 				
 		this._throws = _throws;
+		
+		if (this._throws[0] == 10)
+		{
+			this.isStrike = true;
+		}
+		
+		else if (this.getRawSum() == 10)
+		{
+			this.isSpare = true;
+		}
 	}
+
 	
 	
 	int[] getFrame()
@@ -75,10 +88,10 @@ public class Frame {
 			isLast = i == frames.length - 1;
 			
 			// Strike and not last
-			if (frames[i].isStrike() && !isLast)
+			if (frames[i].isStrike && !isLast)
 			{
 				// Subsequent throw is strike and not last
-				if (frames[i+1].isStrike() && i < frames.length - 2)
+				if (frames[i+1].isStrike && i < frames.length - 2)
 				{
 					score += frames[i+2]._throws[0];
 				}
@@ -99,18 +112,12 @@ public class Frame {
 		
 		return score;
 	}
+
+	public boolean isSpare() {
+		return isSpare;
+	}	
 	
-	
-	boolean isSpare()
-	{
-		int sum = _throws[0] + _throws[1];
-		
-		return !isStrike() && sum == 10;
-	}
-	
-	
-	boolean isStrike()
-	{
-		return this._throws[0] == 10;
+	public boolean isStrike() {
+		return isSpare;
 	}
 }
