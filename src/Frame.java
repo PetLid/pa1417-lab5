@@ -45,19 +45,16 @@ public class Frame {
 		}
 	}
 	
-	
 	int[] getFrame()
 	{
 		return _throws;
 	}
-	
 	
 	int getRawSum()
 	{
 		return _throws[0] + _throws[1];
 	}
 	
-
 	int getScore()
 	{
 		return _throws[0] + _throws[1];
