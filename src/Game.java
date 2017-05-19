@@ -19,8 +19,37 @@ public class Game {
 	}
 	
 	public int getScore()
-	{
-		int score = Frame.getScoreOfSequence(this.frames);
+	{	
+		int score = 0;
+		boolean isLast = false;
+		
+		
+		for(int i = 0; i < frames.length; i++)
+		{
+			isLast = i == frames.length - 1;
+			
+			// Strike and not last
+			if (frames[i].isStrike() && !isLast)
+			{
+				// Subsequent throw is strike and not last
+				if (frames[i+1].isStrike() && i < frames.length - 2)
+				{
+					score += frames[i+2].getFrame()[0];
+				}
+				
+				score += frames[i+1].getRawSum();
+				
+				//score += frames[i+1].getScore(); // getScoreOfSequence(new Frame[] {frames[i+1]});
+			}
+			
+			// Spare and not last
+			else if (frames[i].isSpare() && !isLast)
+			{
+				score += frames[i+1].getFrame()[0];
+			}
+			
+			score += frames[i].getRawSum();
+		}
 		
 		return score;
 	}

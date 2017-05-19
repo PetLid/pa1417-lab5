@@ -66,7 +66,6 @@ public class GameTest {
 		Game instance = new Game(input);
 	}
 	
-	
 	/**
 	 * Test method for {@link Game#Game(Frame[])}.
 	 */
@@ -174,7 +173,6 @@ public class GameTest {
 		assertEquals(expected, output);
 	}
 
-	
 	@Test
 	public final void testGetScoreSpare() {
 		

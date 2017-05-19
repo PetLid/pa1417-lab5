@@ -59,65 +59,18 @@ public class Frame {
 	}
 	
 
-//	int getScore()
-//	{
-//		int score = 0;
-//		
-//		// Spare
-//		if (isSpare())
-//		{
-//			score = 10 + _throws[0];
-//		}
-//		else 
-//		{
-//			score = getRawSum();
-//		}
-//		
-//		return score;
-//	}
-//	
-	
-	static int getScoreOfSequence(Frame[] frames)
+	int getScore()
 	{
-		int score = 0;
-		boolean isLast = false;
-		
-		
-		for(int i = 0; i < frames.length; i++)
-		{
-			isLast = i == frames.length - 1;
-			
-			// Strike and not last
-			if (frames[i].isStrike && !isLast)
-			{
-				// Subsequent throw is strike and not last
-				if (frames[i+1].isStrike && i < frames.length - 2)
-				{
-					score += frames[i+2]._throws[0];
-				}
-				
-				score += frames[i+1].getRawSum();
-				
-				//score += frames[i+1].getScore(); // getScoreOfSequence(new Frame[] {frames[i+1]});
-			}
-			
-			// Spare and not last
-			else if (frames[i].isSpare() && !isLast)
-			{
-				score += frames[i+1]._throws[0];
-			}
-			
-			score += frames[i].getRawSum();
-		}
-		
-		return score;
+		return _throws[0] + _throws[1];
 	}
-
-	public boolean isSpare() {
+	
+	public boolean isSpare() 
+	{
 		return isSpare;
 	}	
 	
-	public boolean isStrike() {
+	public boolean isStrike() 
+	{
 		return isSpare;
 	}
 }

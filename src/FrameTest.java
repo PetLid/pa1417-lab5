@@ -81,9 +81,9 @@ public class FrameTest {
 		int[] input = { 0, 7 };
 		int expected = 7;
 		
-		Frame[] frames = { new Frame(input) };
+		Frame frame = new Frame(input);
 		
-		int output = Frame.getScoreOfSequence(frames);
+		int output = frame.getScore();
 		
 		assertEquals(expected, output);		
 	}
