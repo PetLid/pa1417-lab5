@@ -443,4 +443,32 @@ public class GameTest {
 			
 			assertEquals(expected, output);
 	}
+	
+	@Test
+	public void testAllStrikes()
+	{
+		Frame[] frames = 
+			{
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+				new Frame(new int[] {10, 0}),
+			};
+			
+			int bonus_shot1 = 10, bonus_shot2 = 10;
+			
+			int expected = 300;
+					
+			Game instance = new Game(frames, bonus_shot1, bonus_shot2);
+			
+			int output = instance.getScore();
+			
+			assertEquals(expected, output);
+	}
 }
