@@ -44,7 +44,6 @@ public class Frame {
 			this.isSpare = true;
 		}
 	}
-
 	
 	
 	int[] getFrame()

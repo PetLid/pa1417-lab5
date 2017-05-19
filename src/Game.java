@@ -1,6 +1,5 @@
-
-public class Game {
-
+public class Game 
+{
 	private Frame[] frames;
 	
 	Game(Frame[] frames)
@@ -23,7 +22,6 @@ public class Game {
 		int score = 0;
 		boolean isLast = false;
 		
-		
 		for(int i = 0; i < frames.length; i++)
 		{
 			isLast = i == frames.length - 1;
@@ -37,9 +35,7 @@ public class Game {
 					score += frames[i+2].getFrame()[0];
 				}
 				
-				score += frames[i+1].getRawSum();
-				
-				//score += frames[i+1].getScore(); // getScoreOfSequence(new Frame[] {frames[i+1]});
+				score += frames[i+1].getScore();
 			}
 			
 			// Spare and not last
@@ -48,7 +44,7 @@ public class Game {
 				score += frames[i+1].getFrame()[0];
 			}
 			
-			score += frames[i].getRawSum();
+			score += frames[i].getScore();
 		}
 		
 		return score;

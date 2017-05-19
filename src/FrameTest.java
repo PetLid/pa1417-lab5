@@ -23,7 +23,6 @@ public class FrameTest {
 		Frame instance = new Frame(input);
 	}
 	
-	
 	/**
 	 * Test method for {@link Frame#Frame(int[])}.
 	 */
@@ -34,7 +33,6 @@ public class FrameTest {
 				
 		Frame instance = new Frame(input);
 	}
-	
 	
 	/**
 	 * Test method for {@link Frame#Frame(int[])}.
@@ -57,7 +55,6 @@ public class FrameTest {
 				
 		Frame instance = new Frame(input);
 	}
-	
 
 	/**
 	 * Test method for {@link Frame#getFrame()}.
@@ -116,7 +113,6 @@ public class FrameTest {
 		assertEquals(expected, output);
 	}
 	
-	
 	@Test
 	public void testIsSpareNotSpare()
 	{
@@ -131,7 +127,6 @@ public class FrameTest {
 		assertEquals(expected, output);		
 	}
 	
-	
 	@Test
 	public void testIsSpareIsSpare()
 	{
@@ -145,19 +140,4 @@ public class FrameTest {
 		
 		assertEquals(expected, output);		
 	}
-	
-	
-//	@Test
-//	public void testGetScoreSpare()
-//	{
-//		int[] input = { 2, 8 };
-//		int expected = 12;
-//		
-//		Frame[] instance = { new Frame(input) };
-//		
-//		int output = Frame.getScoreOfSequence(instance);
-//		
-//		assertEquals(expected, output);		
-//	}
-//	
 }
