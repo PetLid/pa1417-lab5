@@ -258,6 +258,7 @@ public class GameTest {
 			expected += input[i][0] + input[i][1];
 		}
 		
+		expected += 10 + 4;
 	
 		Game instance = new Game(frames);
 		
