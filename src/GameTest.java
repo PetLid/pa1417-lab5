@@ -40,8 +40,7 @@ public class GameTest {
 		
 		Game instance = new Game(input);
 	}
-	
-	
+
 	/**
 	 * Test method for {@link Game#Game(Frame[])}.
 	 */
@@ -355,6 +354,34 @@ public class GameTest {
 			expected += 9 + 3;
 					
 			Game instance = new Game(frames);
+			
+			int output = instance.getScore();
+			
+			assertEquals(expected, output);
+	}
+
+	@Test
+	public void testLastFrameSpare()
+	{
+		Frame[] frames = 
+			{
+				new Frame(new int[] {0, 1}),
+				new Frame(new int[] {1, 8}),
+				new Frame(new int[] {6, 1}),
+				new Frame(new int[] {3, 6}),
+				new Frame(new int[] {0, 9}),
+				new Frame(new int[] {6, 1}),
+				new Frame(new int[] {1, 0}),
+				new Frame(new int[] {2, 0}),
+				new Frame(new int[] {4, 0}),
+				new Frame(new int[] {9, 1})			
+			};
+			
+			int bonus_shot = 5;
+			
+			int expected = 59 + bonus_shot;
+					
+			Game instance = new Game(frames, bonus_shot);
 			
 			int output = instance.getScore();
 			
