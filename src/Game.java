@@ -1,7 +1,7 @@
 public class Game 
 {
 	private Frame[] frames;
-	int bonus_shot = 0;
+	int[] bonus_shots = new int[2];
 	
 	Game(Frame[] frames)
 	{
@@ -17,7 +17,15 @@ public class Game
 	{
 		this(frames);
 		
-		this.bonus_shot = bonus_shot;
+		this.bonus_shots[0] = bonus_shot;
+	}
+	
+	Game(Frame[] frames, int bonus_shot1, int bonus_shot2)
+	{
+		this(frames);
+		
+		this.bonus_shots[0] = bonus_shot1;
+		this.bonus_shots[1] = bonus_shot2;
 	}
 	
 	public Frame[] getFrames()
@@ -35,15 +43,22 @@ public class Game
 			isLast = i == frames.length - 1;
 			
 			// Strike and not last
-			if (frames[i].isStrike() && !isLast)
+			if (frames[i].isStrike())
 			{
-				// Subsequent throw is strike and not last
-				if (frames[i+1].isStrike() && i < frames.length - 2)
-				{
-					score += frames[i+2].getFrame()[0];
-				}
-				
-				score += frames[i+1].getScore();
+				 if (!isLast)
+				 {
+					 // Subsequent throw is strike and not last
+					 if (frames[i+1].isStrike() && i < frames.length - 2)
+					 {
+						 score += frames[i+2].getFrame()[0];
+					 }
+					
+					 score += frames[i+1].getScore();
+				 }
+				 else
+				 {
+					 score += this.bonus_shots[0] + this.bonus_shots[1];
+				 }
 			}
 			
 			// Spare and not last
@@ -55,7 +70,7 @@ public class Game
 				}
 				else
 				{
-					score += this.bonus_shot;
+					score += this.bonus_shots[0];
 				}
 			}
 			
