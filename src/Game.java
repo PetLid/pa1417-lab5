@@ -1,6 +1,7 @@
 public class Game 
 {
 	private Frame[] frames;
+	int bonus_shot = 0;
 	
 	Game(Frame[] frames)
 	{
@@ -10,6 +11,13 @@ public class Game
 		}
 		
 		this.frames = frames;
+	}
+	
+	Game(Frame[] frames, int bonus_shot)
+	{
+		this(frames);
+		
+		this.bonus_shot = bonus_shot;
 	}
 	
 	public Frame[] getFrames()
@@ -39,9 +47,16 @@ public class Game
 			}
 			
 			// Spare and not last
-			else if (frames[i].isSpare() && !isLast)
+			else if (frames[i].isSpare())
 			{
-				score += frames[i+1].getFrame()[0];
+				if (!isLast)
+				{
+					score += frames[i+1].getFrame()[0];
+				}
+				else
+				{
+					score += this.bonus_shot;
+				}
 			}
 			
 			score += frames[i].getScore();
