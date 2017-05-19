@@ -42,38 +42,33 @@ public class Game
 		{
 			isLast = i == frames.length - 1;
 			
-			// Strike and not last
-			if (frames[i].isStrike())
+			if (!isLast)
 			{
-				 if (!isLast)
-				 {
-					 // Subsequent throw is strike and not last
-					 if (frames[i+1].isStrike() && i < frames.length - 2)
+				if (frames[i].isStrike())
+				{
+					if (frames[i+1].isStrike() && i < frames.length - 2)
 					 {
 						 score += frames[i+2].getFrame()[0];
 					 }
 					
 					 score += frames[i+1].getScore();
-				 }
-				 else
-				 {
-					 score += this.bonus_shots[0] + this.bonus_shots[1];
-				 }
-			}
-			
-			// Spare and not last
-			else if (frames[i].isSpare())
-			{
-				if (!isLast)
+				}
+				
+				else if (frames[i].isSpare())
 				{
 					score += frames[i+1].getFrame()[0];
 				}
-				else
-				{
-					score += this.bonus_shots[0];
-				}
 			}
-			
+			else if (frames[i].isSpare() || frames[i].isStrike())
+			{
+				 score += this.bonus_shots[0];
+				 
+				 if (frames[i].isStrike())
+				 {
+					 score += this.bonus_shots[1];
+				 }
+			}
+						
 			score += frames[i].getScore();
 		}
 		
