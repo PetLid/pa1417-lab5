@@ -160,37 +160,4 @@ public class FrameTest {
 //		assertEquals(expected, output);		
 //	}
 //	
-	@Test
-	public void testGetScoreSpareFollowsStrike()
-	{		
-		Frame[] input = 
-		{
-			new Frame(new int[] {10, 0}),
-			new Frame(new int[] {1, 9})
-		};
-
-		int expected = ((10+1+9)+(1+9));
-				
-		int output = Frame.getScoreOfSequence(input);
-		
-		assertEquals(expected, output);		
-	}
-	
-	
-	@Test
-	public void testGetScoreMultipleStrikes()
-	{
-		Frame[] input = 
-			{
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {7, 2})
-			};
-		
-		int expected = 55;
-				
-		int output = Frame.getScoreOfSequence(input);
-		
-		assertEquals(expected, output);
-	}
 }

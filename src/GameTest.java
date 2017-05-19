@@ -221,6 +221,52 @@ public class GameTest {
 	}
 
 	@Test
+	public void testGetScoreSpareFollowsStrike()
+	{		
+		int[][] input = 
+		{
+			new int[] {0, 1},
+			new int[] {1, 8},
+			new int[] {4, 2},
+			new int[] {2, 7},
+			new int[] {0, 9},
+			new int[] {6, 1},
+			new int[] {10, 0},
+			new int[] {1, 9},
+			new int[] {4, 0},
+			new int[] {6, 0}		
+		};
+						
+		Frame[] frames = 
+		{
+			new Frame(input[0]),
+			new Frame(input[1]),
+			new Frame(input[2]),
+			new Frame(input[3]),
+			new Frame(input[4]),
+			new Frame(input[5]),
+			new Frame(input[6]),
+			new Frame(input[7]),
+			new Frame(input[8]),
+			new Frame(input[9])			
+		};
+		
+		int expected = 0;
+		
+		for (int i = 0; i < input.length; i++)
+		{
+			expected += input[i][0] + input[i][1];
+		}
+		
+	
+		Game instance = new Game(frames);
+		
+		int output = instance.getScore();
+		
+		assertEquals(expected, output);		
+	}
+	
+	@Test
 	public void testGetScoreMultipleStrikes()
 	{
 		int[][] input = 

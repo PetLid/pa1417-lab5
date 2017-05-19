@@ -71,6 +71,6 @@ public class Frame {
 	
 	public boolean isStrike() 
 	{
-		return isSpare;
+		return isStrike;
 	}
 }
