@@ -448,27 +448,55 @@ public class GameTest {
 	public void testAllStrikes()
 	{
 		Frame[] frames = 
-			{
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-				new Frame(new int[] {10, 0}),
-			};
+		{
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {10, 0}),
+		};
 			
-			int bonus_shot1 = 10, bonus_shot2 = 10;
+		int bonus_shot1 = 10, bonus_shot2 = 10;
+		
+		int expected = 300;
+				
+		Game instance = new Game(frames, bonus_shot1, bonus_shot2);
+		
+		int output = instance.getScore();
+		
+		assertEquals(expected, output);
+	}
+	
+	@Test
+	public void testRealGame()
+	{
+		Frame[] frames = 
+		{
+			new Frame(new int[] {6, 3}),
+			new Frame(new int[] {7, 1}),
+			new Frame(new int[] {8, 2}),
+			new Frame(new int[] {7, 2}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {6, 2}),
+			new Frame(new int[] {7, 3}),
+			new Frame(new int[] {10, 0}),
+			new Frame(new int[] {8, 0}),
+			new Frame(new int[] {7, 3}),
+		};
 			
-			int expected = 300;
-					
-			Game instance = new Game(frames, bonus_shot1, bonus_shot2);
-			
-			int output = instance.getScore();
-			
-			assertEquals(expected, output);
+		int bonus_shot1 = 10, bonus_shot2 = 0;
+		
+		int expected = 135;
+				
+		Game instance = new Game(frames, bonus_shot1, bonus_shot2);
+		
+		int output = instance.getScore();
+		
+		assertEquals(expected, output);
 	}
 }
